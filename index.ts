@@ -1,9 +1,8 @@
-import fs from "fs";
-
 const server = Bun.serve({
     port: 3000,
     fetch(request) {
-        request
+        Bun.write('carlos.txt',"Request received: " + request);
+
         return new Response("Welcome to Bun!" + request);
     },
 });
